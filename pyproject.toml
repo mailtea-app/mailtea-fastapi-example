@@ -1,0 +1,28 @@
+[project]
+name = "mailtea-fastapi-example"
+version = "1.0.0"
+description = "Send email from a FastAPI service with Mailtea."
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "pydantic[email]>=2.7,<3",
+  "python-dotenv>=1.0,<2",
+  "mailtea==0.9.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "httpx>=0.27,<1"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# So the tests can import the app package from the project root.
+pythonpath = ["."]
