@@ -66,7 +66,6 @@ http://127.0.0.1:8000/docs.
 - Mapping `MailteaError` onto the caller's response: Mailtea's own status code
   is passed through (a rejected address stays a 422, a rate limit stays a 429),
   and a Mailtea the service could not reach at all becomes a 502
-- Pointing the SDK at a local or self-hosted Mailtea with `MAILTEA_API_BASE_URL`
 
 ## Tests
 

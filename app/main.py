@@ -24,8 +24,8 @@ app = FastAPI(title="Mailtea + FastAPI Example")
 def get_mailtea() -> Mailtea:
     """One client for the process, built on first use so that importing this
     module needs no credentials — tests override this dependency instead."""
-    # The client reads MAILTEA_API_BASE_URL itself, so the same code runs
-    # against production, a self-hosted instance, or the local dev API.
+    # The client reads the optional MAILTEA_API_BASE_URL override itself.
+    # Unset, it uses https://api.mailtea.app.
     return Mailtea(os.environ["MAILTEA_API_KEY"])
 
 

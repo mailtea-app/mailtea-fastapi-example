@@ -87,7 +87,7 @@ class _Handler(BaseHTTPRequestHandler):
         if method == "PATCH" and path.startswith("/v1/emails/"):
             return self._send(200, {"object": "email", "id": path.rsplit("/", 1)[-1]})
         # Cancel is POST /v1/emails/:id/cancel. There is no DELETE on emails —
-        # the real API does not define one (apps/api/src/email-rest.ts).
+        # the real API does not define one.
         if method == "POST" and path.startswith("/v1/emails/") and path.endswith("/cancel"):
             return self._send(200, {"object": "email", "id": path.split("/")[3]})
         if route == "POST /v1/contacts":
